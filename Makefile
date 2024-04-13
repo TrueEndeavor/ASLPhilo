@@ -6,7 +6,7 @@
 #    By: lannur-s <lannur-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/12 15:24:15 by lannur-s          #+#    #+#              #
-#    Updated: 2024/04/12 21:09:03 by lannur-s         ###   ########.fr        #
+#    Updated: 2024/04/13 19:53:31 by lannur-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo
 LIBFTNAME = libft.a
 
 CC = cc
-CCFLAGS = -Wall -Werror -Wextra -I./include
+CCFLAGS = -Wall -Werror -Wextra -I./include -g
 
 AR = ar
 ARFLAGS = -rcs

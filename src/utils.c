@@ -6,7 +6,7 @@
 /*   By: lannur-s <lannur-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 18:42:45 by lannur-s          #+#    #+#             */
-/*   Updated: 2024/04/12 21:05:36 by lannur-s         ###   ########.fr       */
+/*   Updated: 2024/04/13 19:46:10 by lannur-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ int	ft_atoi(const char *str)
 	return (res * sign);
 }
 
+/* 
+	gettimeofday gives currenttime;
+	                              Microseconds​
+	Time in ms = seconds × 1000 + ------------
+	                                1000
+*/
 size_t	get_time_in_ms(void)
 {
 	struct timeval	time;
@@ -55,26 +61,18 @@ size_t	get_time_in_ms(void)
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-int	let_sleep_in_ms(size_t milliseconds, t_philo *philo)
+/* Spend the given time, but make sure the CPU is not consumed.
+   Thanks to the little delay of usleep, it checks if the time
+   elapsed, by not consuming CPU in full */
+int	ft_spend_time_in_ms(size_t milliseconds, t_philo *philo)
 {
 	size_t	start_time;
 
-	(void) philo; //For the moment
 	start_time = get_time_in_ms();
- 	while (get_time_in_ms() < start_time + milliseconds
+	while (get_time_in_ms() < start_time + milliseconds \
 		&& is_dead(philo) == 0)
 	{
-		usleep(200);
+		usleep(1200);
 	}
 	return (0);
-}
-
-bool	is_dead(t_philo *philo)
-{
-	bool	boolean;
-
-	pthread_mutex_lock(&philo->feast->death_detection_mutex);
-	boolean = philo->feast->is_a_dead_philo;
-	pthread_mutex_unlock(&philo->feast->death_detection_mutex);
-	return (boolean);
 }
