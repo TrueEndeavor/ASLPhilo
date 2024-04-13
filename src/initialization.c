@@ -6,7 +6,7 @@
 /*   By: lannur-s <lannur-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 16:17:46 by lannur-s          #+#    #+#             */
-/*   Updated: 2024/04/13 21:58:43 by lannur-s         ###   ########.fr       */
+/*   Updated: 2024/04/13 22:14:54 by lannur-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ bool	initialize_feast(int argc, char *argv[], t_feast *feast)
 	return (true);
 }
 
+// One fork (mutex) per philo
 void	initialize_philos(t_feast *feast, int i)
 {
 	feast->philo_array[i].id = i + 1;

@@ -6,12 +6,13 @@
 /*   By: lannur-s <lannur-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 20:50:28 by lannur-s          #+#    #+#             */
-/*   Updated: 2024/04/13 20:02:40 by lannur-s         ###   ########.fr       */
+/*   Updated: 2024/04/13 22:17:08 by lannur-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+// Every philo checks for death of any philo
 bool	is_dead(t_philo *philo)
 {
 	bool	death_flag;
@@ -23,6 +24,8 @@ bool	is_dead(t_philo *philo)
 	return (death_flag);
 }
 
+// bruce_almighty checks if all philos eaten full
+// Also checks for death of all philo
 bool	supervise_feast(t_feast *feast, int *total)
 {
 	int		i;
